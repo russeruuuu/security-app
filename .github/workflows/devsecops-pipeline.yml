@@ -37,12 +37,12 @@ jobs:
     - name: Run dependency vulnerability scan
       run: |
         echo "🔍 Scanning dependencies for known vulnerabilities..."
-        pip-audit --dependency-file requirements.txt || true
+        pip-audit -r requirements.txt || true
         echo "✅ Dependency scan completed"
     
     - name: Verify no critical vulnerabilities
       run: |
-        pip-audit --dependency-file requirements.txt --exit-code 0
+        pip-audit -r requirements.txt
         echo "✅ No critical vulnerabilities detected"
 
   # Testing: Unit Tests with Coverage
