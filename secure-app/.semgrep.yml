@@ -1,0 +1,11 @@
+rules:
+  - id: python-flask-debug
+    patterns:
+      - pattern: app.run(debug=True)
+    message: "Flask debug mode should not be enabled in production"
+    severity: ERROR
+  - id: hardcoded-secret
+    patterns:
+      - pattern: $SECRET = "..."
+    message: "Hardcoded secrets detected"
+    severity: ERROR
